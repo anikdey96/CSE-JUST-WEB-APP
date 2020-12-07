@@ -1,0 +1,1330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="csejustModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'csejust.dbo.activities' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="activities">
+          <Key>
+            <PropertyRef Name="student_id" />
+            <PropertyRef Name="club_membership" />
+            <PropertyRef Name="designation" />
+            <PropertyRef Name="achievement" />
+            <PropertyRef Name="others_co_curricular_activities" />
+            <PropertyRef Name="description" />
+          </Key>
+          <Property Name="student_id" Type="int" Nullable="false" />
+          <Property Name="club_membership" Type="bit" Nullable="false" />
+          <Property Name="designation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="achievement" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="others_co_curricular_activities" Type="bit" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="book">
+          <Key>
+            <PropertyRef Name="book_id" />
+          </Key>
+          <Property Name="book_id" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="book_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="book_author" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="edition" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="specification" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'csejust.dbo.carrier_t' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="carrier_t">
+          <Key>
+            <PropertyRef Name="teacher_id" />
+            <PropertyRef Name="joining_date" />
+            <PropertyRef Name="phd_status" />
+            <PropertyRef Name="phd_institute" />
+            <PropertyRef Name="msc_status" />
+            <PropertyRef Name="msc_institute" />
+            <PropertyRef Name="msc_session" />
+            <PropertyRef Name="msc_result" />
+            <PropertyRef Name="bsc_status" />
+            <PropertyRef Name="bsc_institute" />
+            <PropertyRef Name="bsc_session" />
+            <PropertyRef Name="bsc_result" />
+          </Key>
+          <Property Name="teacher_id" Type="int" Nullable="false" />
+          <Property Name="joining_date" Type="date" Nullable="false" />
+          <Property Name="phd_status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="phd_institute" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="msc_status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="msc_institute" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="msc_session" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="msc_result" Type="float" Nullable="false" />
+          <Property Name="bsc_status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="bsc_institute" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="bsc_session" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="bsc_result" Type="float" Nullable="false" />
+          <Property Name="ex_institute" Type="varchar" MaxLength="50" />
+          <Property Name="join_date" Type="date" />
+          <Property Name="leave_date" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'csejust.dbo.current_academic' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="current_academic">
+          <Key>
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="student_id" />
+            <PropertyRef Name="admission_date" />
+            <PropertyRef Name="session" />
+            <PropertyRef Name="dept" />
+            <PropertyRef Name="last_semester_result" />
+            <PropertyRef Name="current_year" />
+            <PropertyRef Name="current_semester" />
+          </Key>
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="student_id" Type="int" Nullable="false" />
+          <Property Name="admission_date" Type="date" Nullable="false" />
+          <Property Name="session" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dept" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="last_semester_result" Type="float" Nullable="false" />
+          <Property Name="current_year" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="current_semester" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="materials">
+          <Key>
+            <PropertyRef Name="materials_id" />
+          </Key>
+          <Property Name="materials_id" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="materials_topic" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="arranged_by" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="reference" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="publish_date" Type="date" Nullable="false" />
+          <Property Name="specification" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="notice">
+          <Key>
+            <PropertyRef Name="notice_id" />
+          </Key>
+          <Property Name="notice_id" Type="int" Nullable="false" />
+          <Property Name="notice_topic" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="published_by" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="publish_date" Type="date" Nullable="false" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="created_date" Type="date" Nullable="false" />
+          <Property Name="updated_by" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="updated_date" Type="date" Nullable="false" />
+          <Property Name="deadline" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="priority" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="specification" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="previous_academic">
+          <Key>
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="student_id" />
+            <PropertyRef Name="hsc_roll" />
+            <PropertyRef Name="hsc_reg" />
+            <PropertyRef Name="hsc_result" />
+            <PropertyRef Name="hsc_board" />
+            <PropertyRef Name="hsc_college" />
+            <PropertyRef Name="hsc_section" />
+            <PropertyRef Name="ssc_roll" />
+            <PropertyRef Name="ssc_reg" />
+            <PropertyRef Name="ssc_result" />
+            <PropertyRef Name="ssc_board" />
+            <PropertyRef Name="ssc_school" />
+            <PropertyRef Name="ssc_section" />
+          </Key>
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="student_id" Type="int" Nullable="false" />
+          <Property Name="hsc_roll" Type="int" Nullable="false" />
+          <Property Name="hsc_reg" Type="int" Nullable="false" />
+          <Property Name="hsc_result" Type="float" Nullable="false" />
+          <Property Name="hsc_board" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="hsc_college" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="hsc_section" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ssc_roll" Type="int" Nullable="false" />
+          <Property Name="ssc_reg" Type="int" Nullable="false" />
+          <Property Name="ssc_result" Type="float" Nullable="false" />
+          <Property Name="ssc_board" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ssc_school" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ssc_section" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="result">
+          <Key>
+            <PropertyRef Name="result_id" />
+          </Key>
+          <Property Name="result_id" Type="int" Nullable="false" />
+          <Property Name="student_id" Type="int" Nullable="false" />
+          <Property Name="session" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="year_semester" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cgpa" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="routine">
+          <Key>
+            <PropertyRef Name="routine_id" />
+          </Key>
+          <Property Name="routine_id" Type="int" Nullable="false" />
+          <Property Name="class_date" Type="date" Nullable="false" />
+          <Property Name="day" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="teacher_id" Type="int" Nullable="false" />
+          <Property Name="subject_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="subject_code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="session" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="start_time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="end_time" Type="time" Precision="7" Nullable="false" />
+          <Property Name="duration" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="comment" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="student_id" />
+          </Key>
+          <Property Name="student_id" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="usertype_id" Type="int" Nullable="false" />
+          <Property Name="quota" Type="bit" Nullable="false" />
+          <Property Name="skills" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="hobby" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="fathers_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fathers_occupassion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fathers_contact_no" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mothers_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mothers_occupassion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mothers_contact_no" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="guardians_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="guardians_occupassion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="guardians_contact_no" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="teacher">
+          <Key>
+            <PropertyRef Name="teacher_id" />
+          </Key>
+          <Property Name="teacher_id" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="usertype_id" Type="int" Nullable="false" />
+          <Property Name="designation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="favorite_quote" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="work_area" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="achievement" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="publication" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="publication_links" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="website" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="usertype_id" Type="int" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="birth_date" Type="date" Nullable="false" />
+          <Property Name="contact_no" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email_address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="current_address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="permanent_address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="gender" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="blood_group" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="religion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nationality" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="profile_pic" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usertype">
+          <Key>
+            <PropertyRef Name="usertype_id" />
+          </Key>
+          <Property Name="usertype_id" Type="int" Nullable="false" />
+          <Property Name="usertype_name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_activities_student">
+          <End Role="student" Type="Self.student" Multiplicity="1" />
+          <End Role="activities" Type="Self.activities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="student_id" />
+            </Principal>
+            <Dependent Role="activities">
+              <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_book_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="book" Type="Self.book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="book">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_carrier_t_teacher">
+          <End Role="teacher" Type="Self.teacher" Multiplicity="1" />
+          <End Role="carrier_t" Type="Self.carrier_t" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="teacher">
+              <PropertyRef Name="teacher_id" />
+            </Principal>
+            <Dependent Role="carrier_t">
+              <PropertyRef Name="teacher_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_current_academic_student">
+          <End Role="student" Type="Self.student" Multiplicity="1" />
+          <End Role="current_academic" Type="Self.current_academic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="student_id" />
+            </Principal>
+            <Dependent Role="current_academic">
+              <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_current_academic_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="current_academic" Type="Self.current_academic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="current_academic">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_materials_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="materials" Type="Self.materials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="materials">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_previous_academic_student1">
+          <End Role="student" Type="Self.student" Multiplicity="1" />
+          <End Role="previous_academic" Type="Self.previous_academic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="student_id" />
+            </Principal>
+            <Dependent Role="previous_academic">
+              <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_previous_academic_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="previous_academic" Type="Self.previous_academic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="previous_academic">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_result_student1">
+          <End Role="student" Type="Self.student" Multiplicity="1" />
+          <End Role="result" Type="Self.result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="student_id" />
+            </Principal>
+            <Dependent Role="result">
+              <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_routine_teacher">
+          <End Role="teacher" Type="Self.teacher" Multiplicity="1" />
+          <End Role="routine" Type="Self.routine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="teacher">
+              <PropertyRef Name="teacher_id" />
+            </Principal>
+            <Dependent Role="routine">
+              <PropertyRef Name="teacher_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_1_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="student" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_1_usertype">
+          <End Role="usertype" Type="Self.usertype" Multiplicity="1" />
+          <End Role="student" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertype">
+              <PropertyRef Name="usertype_id" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="usertype_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_teacher_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="teacher" Type="Self.teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="teacher">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_teacher_usertype">
+          <End Role="usertype" Type="Self.usertype" Multiplicity="1" />
+          <End Role="teacher" Type="Self.teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertype">
+              <PropertyRef Name="usertype_id" />
+            </Principal>
+            <Dependent Role="teacher">
+              <PropertyRef Name="usertype_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_usertype">
+          <End Role="usertype" Type="Self.usertype" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertype">
+              <PropertyRef Name="usertype_id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="usertype_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="csejustModelStoreContainer">
+          <EntitySet Name="book" EntityType="Self.book" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="materials" EntityType="Self.materials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="notice" EntityType="Self.notice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="result" EntityType="Self.result" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="routine" EntityType="Self.routine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="teacher" EntityType="Self.teacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usertype" EntityType="Self.usertype" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="activities" EntityType="Self.activities" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [activities].[student_id] AS [student_id], 
+    [activities].[club_membership] AS [club_membership], 
+    [activities].[designation] AS [designation], 
+    [activities].[achievement] AS [achievement], 
+    [activities].[others_co_curricular_activities] AS [others_co_curricular_activities], 
+    [activities].[description] AS [description]
+    FROM [dbo].[activities] AS [activities]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="carrier_t" EntityType="Self.carrier_t" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [carrier_t].[teacher_id] AS [teacher_id], 
+    [carrier_t].[joining_date] AS [joining_date], 
+    [carrier_t].[phd_status] AS [phd_status], 
+    [carrier_t].[phd_institute] AS [phd_institute], 
+    [carrier_t].[msc_status] AS [msc_status], 
+    [carrier_t].[msc_institute] AS [msc_institute], 
+    [carrier_t].[msc_session] AS [msc_session], 
+    [carrier_t].[msc_result] AS [msc_result], 
+    [carrier_t].[bsc_status] AS [bsc_status], 
+    [carrier_t].[bsc_institute] AS [bsc_institute], 
+    [carrier_t].[bsc_session] AS [bsc_session], 
+    [carrier_t].[bsc_result] AS [bsc_result], 
+    [carrier_t].[ex_institute] AS [ex_institute], 
+    [carrier_t].[join_date] AS [join_date], 
+    [carrier_t].[leave_date] AS [leave_date]
+    FROM [dbo].[carrier_t] AS [carrier_t]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="current_academic" EntityType="Self.current_academic" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [current_academic].[user_id] AS [user_id], 
+    [current_academic].[student_id] AS [student_id], 
+    [current_academic].[admission_date] AS [admission_date], 
+    [current_academic].[session] AS [session], 
+    [current_academic].[dept] AS [dept], 
+    [current_academic].[last_semester_result] AS [last_semester_result], 
+    [current_academic].[current_year] AS [current_year], 
+    [current_academic].[current_semester] AS [current_semester]
+    FROM [dbo].[current_academic] AS [current_academic]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="previous_academic" EntityType="Self.previous_academic" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [previous_academic].[user_id] AS [user_id], 
+    [previous_academic].[student_id] AS [student_id], 
+    [previous_academic].[hsc_roll] AS [hsc_roll], 
+    [previous_academic].[hsc_reg] AS [hsc_reg], 
+    [previous_academic].[hsc_result] AS [hsc_result], 
+    [previous_academic].[hsc_board] AS [hsc_board], 
+    [previous_academic].[hsc_college] AS [hsc_college], 
+    [previous_academic].[hsc_section] AS [hsc_section], 
+    [previous_academic].[ssc_roll] AS [ssc_roll], 
+    [previous_academic].[ssc_reg] AS [ssc_reg], 
+    [previous_academic].[ssc_result] AS [ssc_result], 
+    [previous_academic].[ssc_board] AS [ssc_board], 
+    [previous_academic].[ssc_school] AS [ssc_school], 
+    [previous_academic].[ssc_section] AS [ssc_section]
+    FROM [dbo].[previous_academic] AS [previous_academic]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_activities_student" Association="Self.FK_activities_student">
+            <End Role="student" EntitySet="student" />
+            <End Role="activities" EntitySet="activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_book_user" Association="Self.FK_book_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="book" EntitySet="book" />
+          </AssociationSet>
+          <AssociationSet Name="FK_carrier_t_teacher" Association="Self.FK_carrier_t_teacher">
+            <End Role="teacher" EntitySet="teacher" />
+            <End Role="carrier_t" EntitySet="carrier_t" />
+          </AssociationSet>
+          <AssociationSet Name="FK_current_academic_student" Association="Self.FK_current_academic_student">
+            <End Role="student" EntitySet="student" />
+            <End Role="current_academic" EntitySet="current_academic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_current_academic_user" Association="Self.FK_current_academic_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="current_academic" EntitySet="current_academic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_materials_user" Association="Self.FK_materials_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="materials" EntitySet="materials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_previous_academic_student1" Association="Self.FK_previous_academic_student1">
+            <End Role="student" EntitySet="student" />
+            <End Role="previous_academic" EntitySet="previous_academic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_previous_academic_user" Association="Self.FK_previous_academic_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="previous_academic" EntitySet="previous_academic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_result_student1" Association="Self.FK_result_student1">
+            <End Role="student" EntitySet="student" />
+            <End Role="result" EntitySet="result" />
+          </AssociationSet>
+          <AssociationSet Name="FK_routine_teacher" Association="Self.FK_routine_teacher">
+            <End Role="teacher" EntitySet="teacher" />
+            <End Role="routine" EntitySet="routine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_1_user" Association="Self.FK_Table_1_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="student" EntitySet="student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_1_usertype" Association="Self.FK_Table_1_usertype">
+            <End Role="usertype" EntitySet="usertype" />
+            <End Role="student" EntitySet="student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_teacher_user" Association="Self.FK_teacher_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="teacher" EntitySet="teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_teacher_usertype" Association="Self.FK_teacher_usertype">
+            <End Role="usertype" EntitySet="usertype" />
+            <End Role="teacher" EntitySet="teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_usertype" Association="Self.FK_user_usertype">
+            <End Role="usertype" EntitySet="usertype" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="csejustModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="book">
+          <Key>
+            <PropertyRef Name="book_id" />
+          </Key>
+          <Property Name="book_id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="book_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="book_author" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="edition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="specification" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="Self.FK_book_user" FromRole="book" ToRole="user" />
+        </EntityType>
+        <EntityType Name="material">
+          <Key>
+            <PropertyRef Name="materials_id" />
+          </Key>
+          <Property Name="materials_id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="materials_topic" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="arranged_by" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="reference" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="publish_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="specification" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="Self.FK_materials_user" FromRole="materials" ToRole="user" />
+        </EntityType>
+        <EntityType Name="notice">
+          <Key>
+            <PropertyRef Name="notice_id" />
+          </Key>
+          <Property Name="notice_id" Type="Int32" Nullable="false" />
+          <Property Name="notice_topic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="published_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="publish_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="updated_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="updated_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="deadline" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="priority" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="specification" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="result">
+          <Key>
+            <PropertyRef Name="result_id" />
+          </Key>
+          <Property Name="result_id" Type="Int32" Nullable="false" />
+          <Property Name="student_id" Type="Int32" Nullable="false" />
+          <Property Name="session" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="year_semester" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cgpa" Type="Double" Nullable="false" />
+          <NavigationProperty Name="student" Relationship="Self.FK_result_student1" FromRole="result" ToRole="student" />
+        </EntityType>
+        <EntityType Name="routine">
+          <Key>
+            <PropertyRef Name="routine_id" />
+          </Key>
+          <Property Name="routine_id" Type="Int32" Nullable="false" />
+          <Property Name="class_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="day" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="teacher_id" Type="Int32" Nullable="false" />
+          <Property Name="subject_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="subject_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="session" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="start_time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="end_time" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="duration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="teacher" Relationship="Self.FK_routine_teacher" FromRole="routine" ToRole="teacher" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="student_id" />
+          </Key>
+          <Property Name="student_id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="usertype_id" Type="Int32" Nullable="false" />
+          <Property Name="quota" Type="Boolean" Nullable="false" />
+          <Property Name="skills" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hobby" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fathers_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fathers_occupassion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fathers_contact_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mothers_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mothers_occupassion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mothers_contact_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="guardians_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="guardians_occupassion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="guardians_contact_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="results" Relationship="Self.FK_result_student1" FromRole="student" ToRole="result" />
+          <NavigationProperty Name="activities" Relationship="Self.FK_activities_student" FromRole="student" ToRole="activities" />
+          <NavigationProperty Name="current_academic" Relationship="Self.FK_current_academic_student" FromRole="student" ToRole="current_academic" />
+          <NavigationProperty Name="previous_academic" Relationship="Self.FK_previous_academic_student1" FromRole="student" ToRole="previous_academic" />
+          <NavigationProperty Name="user" Relationship="Self.FK_Table_1_user" FromRole="student" ToRole="user" />
+          <NavigationProperty Name="usertype" Relationship="Self.FK_Table_1_usertype" FromRole="student" ToRole="usertype" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="teacher">
+          <Key>
+            <PropertyRef Name="teacher_id" />
+          </Key>
+          <Property Name="teacher_id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="usertype_id" Type="Int32" Nullable="false" />
+          <Property Name="designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="favorite_quote" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="work_area" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="achievement" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="publication" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="publication_links" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="routines" Relationship="Self.FK_routine_teacher" FromRole="teacher" ToRole="routine" />
+          <NavigationProperty Name="carrier_t" Relationship="Self.FK_carrier_t_teacher" FromRole="teacher" ToRole="carrier_t" />
+          <NavigationProperty Name="user" Relationship="Self.FK_teacher_user" FromRole="teacher" ToRole="user" />
+          <NavigationProperty Name="usertype" Relationship="Self.FK_teacher_usertype" FromRole="teacher" ToRole="usertype" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="usertype_id" Type="Int32" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="birth_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="contact_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="current_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="permanent_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="blood_group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="religion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="profile_pic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="books" Relationship="Self.FK_book_user" FromRole="user" ToRole="book" />
+          <NavigationProperty Name="materials" Relationship="Self.FK_materials_user" FromRole="user" ToRole="materials" />
+          <NavigationProperty Name="students" Relationship="Self.FK_Table_1_user" FromRole="user" ToRole="student" />
+          <NavigationProperty Name="teachers" Relationship="Self.FK_teacher_user" FromRole="user" ToRole="teacher" />
+          <NavigationProperty Name="current_academic" Relationship="Self.FK_current_academic_user" FromRole="user" ToRole="current_academic" />
+          <NavigationProperty Name="previous_academic" Relationship="Self.FK_previous_academic_user" FromRole="user" ToRole="previous_academic" />
+          <NavigationProperty Name="usertype" Relationship="Self.FK_user_usertype" FromRole="user" ToRole="usertype" />
+        </EntityType>
+        <EntityType Name="usertype">
+          <Key>
+            <PropertyRef Name="usertype_id" />
+          </Key>
+          <Property Name="usertype_id" Type="Int32" Nullable="false" />
+          <Property Name="usertype_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="students" Relationship="Self.FK_Table_1_usertype" FromRole="usertype" ToRole="student" />
+          <NavigationProperty Name="teachers" Relationship="Self.FK_teacher_usertype" FromRole="usertype" ToRole="teacher" />
+          <NavigationProperty Name="users" Relationship="Self.FK_user_usertype" FromRole="usertype" ToRole="user" />
+        </EntityType>
+        <EntityType Name="activity">
+          <Key>
+            <PropertyRef Name="student_id" />
+            <PropertyRef Name="club_membership" />
+            <PropertyRef Name="designation" />
+            <PropertyRef Name="achievement" />
+            <PropertyRef Name="others_co_curricular_activities" />
+            <PropertyRef Name="description" />
+          </Key>
+          <Property Name="student_id" Type="Int32" Nullable="false" />
+          <Property Name="club_membership" Type="Boolean" Nullable="false" />
+          <Property Name="designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="achievement" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="others_co_curricular_activities" Type="Boolean" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="student" Relationship="Self.FK_activities_student" FromRole="activities" ToRole="student" />
+        </EntityType>
+        <EntityType Name="carrier_t">
+          <Key>
+            <PropertyRef Name="teacher_id" />
+            <PropertyRef Name="joining_date" />
+            <PropertyRef Name="phd_status" />
+            <PropertyRef Name="phd_institute" />
+            <PropertyRef Name="msc_status" />
+            <PropertyRef Name="msc_institute" />
+            <PropertyRef Name="msc_session" />
+            <PropertyRef Name="msc_result" />
+            <PropertyRef Name="bsc_status" />
+            <PropertyRef Name="bsc_institute" />
+            <PropertyRef Name="bsc_session" />
+            <PropertyRef Name="bsc_result" />
+          </Key>
+          <Property Name="teacher_id" Type="Int32" Nullable="false" />
+          <Property Name="joining_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="phd_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phd_institute" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="msc_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="msc_institute" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="msc_session" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="msc_result" Type="Double" Nullable="false" />
+          <Property Name="bsc_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="bsc_institute" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="bsc_session" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="bsc_result" Type="Double" Nullable="false" />
+          <Property Name="ex_institute" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="join_date" Type="DateTime" Precision="0" />
+          <Property Name="leave_date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="teacher" Relationship="Self.FK_carrier_t_teacher" FromRole="carrier_t" ToRole="teacher" />
+        </EntityType>
+        <EntityType Name="current_academic">
+          <Key>
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="student_id" />
+            <PropertyRef Name="admission_date" />
+            <PropertyRef Name="session" />
+            <PropertyRef Name="dept" />
+            <PropertyRef Name="last_semester_result" />
+            <PropertyRef Name="current_year" />
+            <PropertyRef Name="current_semester" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="student_id" Type="Int32" Nullable="false" />
+          <Property Name="admission_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="session" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dept" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_semester_result" Type="Double" Nullable="false" />
+          <Property Name="current_year" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="current_semester" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="student" Relationship="Self.FK_current_academic_student" FromRole="current_academic" ToRole="student" />
+          <NavigationProperty Name="user" Relationship="Self.FK_current_academic_user" FromRole="current_academic" ToRole="user" />
+        </EntityType>
+        <EntityType Name="previous_academic">
+          <Key>
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="student_id" />
+            <PropertyRef Name="hsc_roll" />
+            <PropertyRef Name="hsc_reg" />
+            <PropertyRef Name="hsc_result" />
+            <PropertyRef Name="hsc_board" />
+            <PropertyRef Name="hsc_college" />
+            <PropertyRef Name="hsc_section" />
+            <PropertyRef Name="ssc_roll" />
+            <PropertyRef Name="ssc_reg" />
+            <PropertyRef Name="ssc_result" />
+            <PropertyRef Name="ssc_board" />
+            <PropertyRef Name="ssc_school" />
+            <PropertyRef Name="ssc_section" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="student_id" Type="Int32" Nullable="false" />
+          <Property Name="hsc_roll" Type="Int32" Nullable="false" />
+          <Property Name="hsc_reg" Type="Int32" Nullable="false" />
+          <Property Name="hsc_result" Type="Double" Nullable="false" />
+          <Property Name="hsc_board" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hsc_college" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hsc_section" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ssc_roll" Type="Int32" Nullable="false" />
+          <Property Name="ssc_reg" Type="Int32" Nullable="false" />
+          <Property Name="ssc_result" Type="Double" Nullable="false" />
+          <Property Name="ssc_board" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ssc_school" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ssc_section" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="student" Relationship="Self.FK_previous_academic_student1" FromRole="previous_academic" ToRole="student" />
+          <NavigationProperty Name="user" Relationship="Self.FK_previous_academic_user" FromRole="previous_academic" ToRole="user" />
+        </EntityType>
+        <Association Name="FK_book_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="book" Type="Self.book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="book">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_materials_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="materials" Type="Self.material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="materials">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_result_student1">
+          <End Role="student" Type="Self.student" Multiplicity="1" />
+          <End Role="result" Type="Self.result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="student_id" />
+            </Principal>
+            <Dependent Role="result">
+              <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_routine_teacher">
+          <End Role="teacher" Type="Self.teacher" Multiplicity="1" />
+          <End Role="routine" Type="Self.routine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="teacher">
+              <PropertyRef Name="teacher_id" />
+            </Principal>
+            <Dependent Role="routine">
+              <PropertyRef Name="teacher_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_activities_student">
+          <End Role="student" Type="Self.student" Multiplicity="1" />
+          <End Role="activities" Type="Self.activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="student_id" />
+            </Principal>
+            <Dependent Role="activities">
+              <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_current_academic_student">
+          <End Role="student" Type="Self.student" Multiplicity="1" />
+          <End Role="current_academic" Type="Self.current_academic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="student_id" />
+            </Principal>
+            <Dependent Role="current_academic">
+              <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_previous_academic_student1">
+          <End Role="student" Type="Self.student" Multiplicity="1" />
+          <End Role="previous_academic" Type="Self.previous_academic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="student_id" />
+            </Principal>
+            <Dependent Role="previous_academic">
+              <PropertyRef Name="student_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_1_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="student" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_1_usertype">
+          <End Role="usertype" Type="Self.usertype" Multiplicity="1" />
+          <End Role="student" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertype">
+              <PropertyRef Name="usertype_id" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="usertype_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_carrier_t_teacher">
+          <End Role="teacher" Type="Self.teacher" Multiplicity="1" />
+          <End Role="carrier_t" Type="Self.carrier_t" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="teacher">
+              <PropertyRef Name="teacher_id" />
+            </Principal>
+            <Dependent Role="carrier_t">
+              <PropertyRef Name="teacher_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_teacher_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="teacher" Type="Self.teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="teacher">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_teacher_usertype">
+          <End Role="usertype" Type="Self.usertype" Multiplicity="1" />
+          <End Role="teacher" Type="Self.teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertype">
+              <PropertyRef Name="usertype_id" />
+            </Principal>
+            <Dependent Role="teacher">
+              <PropertyRef Name="usertype_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_current_academic_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="current_academic" Type="Self.current_academic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="current_academic">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_previous_academic_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="previous_academic" Type="Self.previous_academic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="previous_academic">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_usertype">
+          <End Role="usertype" Type="Self.usertype" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertype">
+              <PropertyRef Name="usertype_id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="usertype_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="csejustEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="books" EntityType="Self.book" />
+          <EntitySet Name="materials" EntityType="Self.material" />
+          <EntitySet Name="notices" EntityType="Self.notice" />
+          <EntitySet Name="results" EntityType="Self.result" />
+          <EntitySet Name="routines" EntityType="Self.routine" />
+          <EntitySet Name="students" EntityType="Self.student" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="teachers" EntityType="Self.teacher" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="usertypes" EntityType="Self.usertype" />
+          <EntitySet Name="activities" EntityType="Self.activity" />
+          <EntitySet Name="carrier_t" EntityType="Self.carrier_t" />
+          <EntitySet Name="current_academic" EntityType="Self.current_academic" />
+          <EntitySet Name="previous_academic" EntityType="Self.previous_academic" />
+          <AssociationSet Name="FK_book_user" Association="Self.FK_book_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="book" EntitySet="books" />
+          </AssociationSet>
+          <AssociationSet Name="FK_materials_user" Association="Self.FK_materials_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="materials" EntitySet="materials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_result_student1" Association="Self.FK_result_student1">
+            <End Role="student" EntitySet="students" />
+            <End Role="result" EntitySet="results" />
+          </AssociationSet>
+          <AssociationSet Name="FK_routine_teacher" Association="Self.FK_routine_teacher">
+            <End Role="teacher" EntitySet="teachers" />
+            <End Role="routine" EntitySet="routines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_activities_student" Association="Self.FK_activities_student">
+            <End Role="student" EntitySet="students" />
+            <End Role="activities" EntitySet="activities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_current_academic_student" Association="Self.FK_current_academic_student">
+            <End Role="student" EntitySet="students" />
+            <End Role="current_academic" EntitySet="current_academic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_previous_academic_student1" Association="Self.FK_previous_academic_student1">
+            <End Role="student" EntitySet="students" />
+            <End Role="previous_academic" EntitySet="previous_academic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_1_user" Association="Self.FK_Table_1_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="student" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_1_usertype" Association="Self.FK_Table_1_usertype">
+            <End Role="usertype" EntitySet="usertypes" />
+            <End Role="student" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_carrier_t_teacher" Association="Self.FK_carrier_t_teacher">
+            <End Role="teacher" EntitySet="teachers" />
+            <End Role="carrier_t" EntitySet="carrier_t" />
+          </AssociationSet>
+          <AssociationSet Name="FK_teacher_user" Association="Self.FK_teacher_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="teacher" EntitySet="teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_teacher_usertype" Association="Self.FK_teacher_usertype">
+            <End Role="usertype" EntitySet="usertypes" />
+            <End Role="teacher" EntitySet="teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_current_academic_user" Association="Self.FK_current_academic_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="current_academic" EntitySet="current_academic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_previous_academic_user" Association="Self.FK_previous_academic_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="previous_academic" EntitySet="previous_academic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_usertype" Association="Self.FK_user_usertype">
+            <End Role="usertype" EntitySet="usertypes" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="csejustModelStoreContainer" CdmEntityContainer="csejustEntities">
+          <EntitySetMapping Name="books">
+            <EntityTypeMapping TypeName="csejustModel.book">
+              <MappingFragment StoreEntitySet="book">
+                <ScalarProperty Name="book_id" ColumnName="book_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="book_name" ColumnName="book_name" />
+                <ScalarProperty Name="book_author" ColumnName="book_author" />
+                <ScalarProperty Name="edition" ColumnName="edition" />
+                <ScalarProperty Name="specification" ColumnName="specification" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="materials">
+            <EntityTypeMapping TypeName="csejustModel.material">
+              <MappingFragment StoreEntitySet="materials">
+                <ScalarProperty Name="materials_id" ColumnName="materials_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="materials_topic" ColumnName="materials_topic" />
+                <ScalarProperty Name="arranged_by" ColumnName="arranged_by" />
+                <ScalarProperty Name="reference" ColumnName="reference" />
+                <ScalarProperty Name="publish_date" ColumnName="publish_date" />
+                <ScalarProperty Name="specification" ColumnName="specification" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="notices">
+            <EntityTypeMapping TypeName="csejustModel.notice">
+              <MappingFragment StoreEntitySet="notice">
+                <ScalarProperty Name="notice_id" ColumnName="notice_id" />
+                <ScalarProperty Name="notice_topic" ColumnName="notice_topic" />
+                <ScalarProperty Name="published_by" ColumnName="published_by" />
+                <ScalarProperty Name="publish_date" ColumnName="publish_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+                <ScalarProperty Name="deadline" ColumnName="deadline" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+                <ScalarProperty Name="specification" ColumnName="specification" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="results">
+            <EntityTypeMapping TypeName="csejustModel.result">
+              <MappingFragment StoreEntitySet="result">
+                <ScalarProperty Name="result_id" ColumnName="result_id" />
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+                <ScalarProperty Name="session" ColumnName="session" />
+                <ScalarProperty Name="year_semester" ColumnName="year_semester" />
+                <ScalarProperty Name="cgpa" ColumnName="cgpa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="routines">
+            <EntityTypeMapping TypeName="csejustModel.routine">
+              <MappingFragment StoreEntitySet="routine">
+                <ScalarProperty Name="routine_id" ColumnName="routine_id" />
+                <ScalarProperty Name="class_date" ColumnName="class_date" />
+                <ScalarProperty Name="day" ColumnName="day" />
+                <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+                <ScalarProperty Name="subject_name" ColumnName="subject_name" />
+                <ScalarProperty Name="subject_code" ColumnName="subject_code" />
+                <ScalarProperty Name="session" ColumnName="session" />
+                <ScalarProperty Name="start_time" ColumnName="start_time" />
+                <ScalarProperty Name="end_time" ColumnName="end_time" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="students">
+            <EntityTypeMapping TypeName="csejustModel.student">
+              <MappingFragment StoreEntitySet="student">
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="usertype_id" ColumnName="usertype_id" />
+                <ScalarProperty Name="quota" ColumnName="quota" />
+                <ScalarProperty Name="skills" ColumnName="skills" />
+                <ScalarProperty Name="hobby" ColumnName="hobby" />
+                <ScalarProperty Name="fathers_name" ColumnName="fathers_name" />
+                <ScalarProperty Name="fathers_occupassion" ColumnName="fathers_occupassion" />
+                <ScalarProperty Name="fathers_contact_no" ColumnName="fathers_contact_no" />
+                <ScalarProperty Name="mothers_name" ColumnName="mothers_name" />
+                <ScalarProperty Name="mothers_occupassion" ColumnName="mothers_occupassion" />
+                <ScalarProperty Name="mothers_contact_no" ColumnName="mothers_contact_no" />
+                <ScalarProperty Name="guardians_name" ColumnName="guardians_name" />
+                <ScalarProperty Name="guardians_occupassion" ColumnName="guardians_occupassion" />
+                <ScalarProperty Name="guardians_contact_no" ColumnName="guardians_contact_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="csejustModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="teachers">
+            <EntityTypeMapping TypeName="csejustModel.teacher">
+              <MappingFragment StoreEntitySet="teacher">
+                <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="usertype_id" ColumnName="usertype_id" />
+                <ScalarProperty Name="designation" ColumnName="designation" />
+                <ScalarProperty Name="favorite_quote" ColumnName="favorite_quote" />
+                <ScalarProperty Name="work_area" ColumnName="work_area" />
+                <ScalarProperty Name="achievement" ColumnName="achievement" />
+                <ScalarProperty Name="publication" ColumnName="publication" />
+                <ScalarProperty Name="publication_links" ColumnName="publication_links" />
+                <ScalarProperty Name="website" ColumnName="website" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="csejustModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="usertype_id" ColumnName="usertype_id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+                <ScalarProperty Name="contact_no" ColumnName="contact_no" />
+                <ScalarProperty Name="email_address" ColumnName="email_address" />
+                <ScalarProperty Name="current_address" ColumnName="current_address" />
+                <ScalarProperty Name="permanent_address" ColumnName="permanent_address" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="blood_group" ColumnName="blood_group" />
+                <ScalarProperty Name="religion" ColumnName="religion" />
+                <ScalarProperty Name="nationality" ColumnName="nationality" />
+                <ScalarProperty Name="profile_pic" ColumnName="profile_pic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usertypes">
+            <EntityTypeMapping TypeName="csejustModel.usertype">
+              <MappingFragment StoreEntitySet="usertype">
+                <ScalarProperty Name="usertype_id" ColumnName="usertype_id" />
+                <ScalarProperty Name="usertype_name" ColumnName="usertype_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="activities">
+            <EntityTypeMapping TypeName="csejustModel.activity">
+              <MappingFragment StoreEntitySet="activities">
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+                <ScalarProperty Name="club_membership" ColumnName="club_membership" />
+                <ScalarProperty Name="designation" ColumnName="designation" />
+                <ScalarProperty Name="achievement" ColumnName="achievement" />
+                <ScalarProperty Name="others_co_curricular_activities" ColumnName="others_co_curricular_activities" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="carrier_t">
+            <EntityTypeMapping TypeName="csejustModel.carrier_t">
+              <MappingFragment StoreEntitySet="carrier_t">
+                <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+                <ScalarProperty Name="joining_date" ColumnName="joining_date" />
+                <ScalarProperty Name="phd_status" ColumnName="phd_status" />
+                <ScalarProperty Name="phd_institute" ColumnName="phd_institute" />
+                <ScalarProperty Name="msc_status" ColumnName="msc_status" />
+                <ScalarProperty Name="msc_institute" ColumnName="msc_institute" />
+                <ScalarProperty Name="msc_session" ColumnName="msc_session" />
+                <ScalarProperty Name="msc_result" ColumnName="msc_result" />
+                <ScalarProperty Name="bsc_status" ColumnName="bsc_status" />
+                <ScalarProperty Name="bsc_institute" ColumnName="bsc_institute" />
+                <ScalarProperty Name="bsc_session" ColumnName="bsc_session" />
+                <ScalarProperty Name="bsc_result" ColumnName="bsc_result" />
+                <ScalarProperty Name="ex_institute" ColumnName="ex_institute" />
+                <ScalarProperty Name="join_date" ColumnName="join_date" />
+                <ScalarProperty Name="leave_date" ColumnName="leave_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="current_academic">
+            <EntityTypeMapping TypeName="csejustModel.current_academic">
+              <MappingFragment StoreEntitySet="current_academic">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+                <ScalarProperty Name="admission_date" ColumnName="admission_date" />
+                <ScalarProperty Name="session" ColumnName="session" />
+                <ScalarProperty Name="dept" ColumnName="dept" />
+                <ScalarProperty Name="last_semester_result" ColumnName="last_semester_result" />
+                <ScalarProperty Name="current_year" ColumnName="current_year" />
+                <ScalarProperty Name="current_semester" ColumnName="current_semester" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="previous_academic">
+            <EntityTypeMapping TypeName="csejustModel.previous_academic">
+              <MappingFragment StoreEntitySet="previous_academic">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+                <ScalarProperty Name="hsc_roll" ColumnName="hsc_roll" />
+                <ScalarProperty Name="hsc_reg" ColumnName="hsc_reg" />
+                <ScalarProperty Name="hsc_result" ColumnName="hsc_result" />
+                <ScalarProperty Name="hsc_board" ColumnName="hsc_board" />
+                <ScalarProperty Name="hsc_college" ColumnName="hsc_college" />
+                <ScalarProperty Name="hsc_section" ColumnName="hsc_section" />
+                <ScalarProperty Name="ssc_roll" ColumnName="ssc_roll" />
+                <ScalarProperty Name="ssc_reg" ColumnName="ssc_reg" />
+                <ScalarProperty Name="ssc_result" ColumnName="ssc_result" />
+                <ScalarProperty Name="ssc_board" ColumnName="ssc_board" />
+                <ScalarProperty Name="ssc_school" ColumnName="ssc_school" />
+                <ScalarProperty Name="ssc_section" ColumnName="ssc_section" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
