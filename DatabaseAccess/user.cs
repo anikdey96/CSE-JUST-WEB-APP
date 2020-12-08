@@ -39,6 +39,7 @@ namespace DatabaseAccess
         public string religion { get; set; }
         public string nationality { get; set; }
         public string profile_pic { get; set; }
+        public string password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<book> books { get; set; }
