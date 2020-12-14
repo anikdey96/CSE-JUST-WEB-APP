@@ -29,6 +29,7 @@
     <!-- Custom styles for this template-->
     <link href="~/Content/Admin Template/css/sb-admin-2.min.css" rel="stylesheet">
     <link href="~/Content/Admin Template/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="~/Content/Admin Template/css/about.css" rel="stylesheet" />
 </head>
 
 
@@ -39,30 +40,38 @@
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-                <div id="div1" class="fa"></div>
+            <div class="d-flex justify-content-start">
+            <img src="~/Content/Admin Template/img/varsity-logo.png" />
+            </div>
 
-                <script>
-                    function smile() {
-                        var a;
-                        a = document.getElementById("div1");
-                        a.innerHTML = "&#xf118;";
-                        setTimeout(function () {
-                            a.innerHTML = "&#xf11a;";
-                        }, 1000);
-                        setTimeout(function () {
-                            a.innerHTML = "&#xf119;";
-                        }, 2000);
-                        setTimeout(function () {
-                            a.innerHTML = "&#xf11a;";
-                        }, 3000);
-                    }
-                    smile();
-                    setInterval(smile, 4000);
-                </script>
-                <div class="sidebar-brand-text mx-3">Dashboard<sup>user</sup></div>
-            </a>
+
+
+
+            <!-- Sidebar - Brand -->
+            @*<a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+        <img src="~/Content/Admin Template/img/just-logo.png" />*@
+            @*<div id="div1" class="fa"></div>
+
+        <script>
+            function smile() {
+                var a;
+                a = document.getElementById("div1");
+                a.innerHTML = "&#xf118;";
+                setTimeout(function () {
+                    a.innerHTML = "&#xf11a;";
+                }, 1000);
+                setTimeout(function () {
+                    a.innerHTML = "&#xf119;";
+                }, 2000);
+                setTimeout(function () {
+                    a.innerHTML = "&#xf11a;";
+                }, 3000);
+            }
+            smile();
+            setInterval(smile, 4000);
+        </script>*@
+            @*<div class="sidebar-brand-text mx-3">Dashboard<sup>user</sup></div>
+        </a>*@
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">

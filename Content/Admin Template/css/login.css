@@ -1,12 +1,14 @@
 ﻿#login {
-    background-image: url('../img/wwlcome2.gif');
+    background-image: url('../img/login(2).jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
 #welcome h3 {
-    color: yellow;
-    font-family: 'Monoton', cursive;
+    color: white;
+    font-family: 'Roboto', sans-serif;
     font-size: 50px;
 }
+
+
 

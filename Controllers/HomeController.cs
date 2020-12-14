@@ -50,7 +50,7 @@ namespace Cse_Just_Web_App.Controllers
 
                         else if (finduser[0].usertype_id == 2)
                         {
-                            return RedirectToAction("Contact");
+                            return RedirectToAction("About");
                         }
 
                         //else if (finduser[0].UserTypeID == 1)
@@ -138,17 +138,17 @@ namespace Cse_Just_Web_App.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Welcome to Jashore University Of Science & Technology Arena";
+            ViewBag.Message = "THE CHAIRMAN";
 
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Welcome to Jashore University Of Science & Technology Arena";
+        //public ActionResult Contact()
+        //{
+        //    ViewBag.Message = "Welcome to Jashore University Of Science & Technology Arena";
 
-            return View();
-        }
+        //    return View();
+        //}
 
 
         public ActionResult Logout()
