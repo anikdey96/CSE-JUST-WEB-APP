@@ -138,7 +138,7 @@ namespace Cse_Just_Web_App.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "THE CHAIRMAN";
+            ViewBag.Message = "THE CHAIRMAN OF CSE DEPARTMENT";
 
             return View();
         }

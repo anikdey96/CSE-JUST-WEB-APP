@@ -246,7 +246,7 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
           <Key>
             <PropertyRef Name="usertype_id" />
           </Key>
-          <Property Name="usertype_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usertype_id" Type="int" Nullable="false" />
           <Property Name="usertype_name" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_activities_student">
