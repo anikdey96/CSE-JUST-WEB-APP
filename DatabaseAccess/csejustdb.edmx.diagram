@@ -4,21 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="21fd118045604f408ead732f39525bef" Name="Diagram1">
-        <EntityTypeShape EntityType="csejustModel.book" Width="1.5" PointX="5.25" PointY="29" IsExpanded="true" />
-        <EntityTypeShape EntityType="csejustModel.material" Width="1.5" PointX="5.25" PointY="32.125" IsExpanded="true" />
+      <Diagram DiagramId="168945f924044633a4f7ae039b2b23ba" Name="Diagram1">
+        <EntityTypeShape EntityType="csejustModel.book" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="csejustModel.material" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
         <EntityTypeShape EntityType="csejustModel.notice" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="csejustModel.result" Width="1.5" PointX="7.5" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="csejustModel.routine" Width="1.5" PointX="10.5" PointY="21" IsExpanded="true" />
-        <EntityTypeShape EntityType="csejustModel.student" Width="1.5" PointX="5.25" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="csejustModel.result" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="csejustModel.routine" Width="1.5" PointX="7.5" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="csejustModel.student" Width="1.5" PointX="3.75" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="csejustModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="csejustModel.teacher" Width="1.5" PointX="8.25" PointY="23.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="csejustModel.user" Width="1.5" PointX="3" PointY="29.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="csejustModel.usertype" Width="1.5" PointX="0.75" PointY="15.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="csejustModel.activity" Width="1.5" PointX="7.5" PointY="28.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="csejustModel.carrier_t" Width="1.5" PointX="10.5" PointY="25.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="csejustModel.current_academic" Width="1.5" PointX="10.5" PointY="30" IsExpanded="true" />
-        <EntityTypeShape EntityType="csejustModel.previous_academic" Width="1.5" PointX="7.5" PointY="32.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="csejustModel.teacher" Width="1.5" PointX="5.25" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="csejustModel.user" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="csejustModel.activity" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="csejustModel.carrier_t" Width="1.5" PointX="7.5" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="csejustModel.current_academic" Width="1.5" PointX="6" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="csejustModel.previous_academic" Width="1.5" PointX="3" PointY="18.125" IsExpanded="true" />
         <AssociationConnector Association="csejustModel.FK_book_user" ManuallyRouted="false" />
         <AssociationConnector Association="csejustModel.FK_materials_user" ManuallyRouted="false" />
         <AssociationConnector Association="csejustModel.FK_result_student1" ManuallyRouted="false" />
@@ -26,15 +25,14 @@
         <AssociationConnector Association="csejustModel.FK_activities_student" ManuallyRouted="false" />
         <AssociationConnector Association="csejustModel.FK_current_academic_student" ManuallyRouted="false" />
         <AssociationConnector Association="csejustModel.FK_previous_academic_student1" ManuallyRouted="false" />
-        <AssociationConnector Association="csejustModel.FK_Table_1_user" ManuallyRouted="false" />
-        <AssociationConnector Association="csejustModel.FK_Table_1_usertype" ManuallyRouted="false" />
         <AssociationConnector Association="csejustModel.FK_carrier_t_teacher" ManuallyRouted="false" />
         <AssociationConnector Association="csejustModel.FK_teacher_user" ManuallyRouted="false" />
-        <AssociationConnector Association="csejustModel.FK_teacher_usertype" ManuallyRouted="false" />
         <AssociationConnector Association="csejustModel.FK_current_academic_user" ManuallyRouted="false" />
         <AssociationConnector Association="csejustModel.FK_previous_academic_user" ManuallyRouted="false" />
-        <AssociationConnector Association="csejustModel.FK_user_usertype" ManuallyRouted="false" />
-      </Diagram>
+        <EntityTypeShape EntityType="csejustModel.usertype" Width="1.5" PointX="0.75" PointY="16.5" />
+        <AssociationConnector Association="csejustModel.FK_teacher_usertype" />
+        <AssociationConnector Association="csejustModel.FK_user_usertype" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

@@ -17,12 +17,20 @@ namespace Cse_Just_Web_App.Controllers
         // GET: usertypes
         public ActionResult Index()
         {
+            if (string.IsNullOrEmpty(Convert.ToString(Session["last_name"])))
+            {
+                return RedirectToAction("Login", "Home");
+            }
             return View(db.usertypes.ToList());
         }
 
         // GET: usertypes/Details/5
         public ActionResult Details(int? id)
         {
+            if (string.IsNullOrEmpty(Convert.ToString(Session["last_name"])))
+            {
+                return RedirectToAction("Login", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -38,6 +46,10 @@ namespace Cse_Just_Web_App.Controllers
         // GET: usertypes/Create
         public ActionResult Create()
         {
+            if (string.IsNullOrEmpty(Convert.ToString(Session["last_name"])))
+            {
+                return RedirectToAction("Login", "Home");
+            }
             return View();
         }
 
@@ -48,6 +60,10 @@ namespace Cse_Just_Web_App.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(usertype usertype)
         {
+            if (string.IsNullOrEmpty(Convert.ToString(Session["last_name"])))
+            {
+                return RedirectToAction("Login", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.usertypes.Add(usertype);
@@ -61,6 +77,10 @@ namespace Cse_Just_Web_App.Controllers
         // GET: usertypes/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (string.IsNullOrEmpty(Convert.ToString(Session["last_name"])))
+            {
+                return RedirectToAction("Login", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -80,6 +100,10 @@ namespace Cse_Just_Web_App.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(usertype usertype)
         {
+            if (string.IsNullOrEmpty(Convert.ToString(Session["last_name"])))
+            {
+                return RedirectToAction("Login", "Home");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(usertype).State = EntityState.Modified;
@@ -92,6 +116,10 @@ namespace Cse_Just_Web_App.Controllers
         // GET: usertypes/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (string.IsNullOrEmpty(Convert.ToString(Session["last_name"])))
+            {
+                return RedirectToAction("Login", "Home");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -109,6 +137,10 @@ namespace Cse_Just_Web_App.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            if (string.IsNullOrEmpty(Convert.ToString(Session["last_name"])))
+            {
+                return RedirectToAction("Login", "Home");
+            }
             usertype usertype = db.usertypes.Find(id);
             db.usertypes.Remove(usertype);
             db.SaveChanges();

@@ -47,7 +47,5 @@ namespace DatabaseAccess
         public virtual ICollection<current_academic> current_academic { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<previous_academic> previous_academic { get; set; }
-        public virtual user user { get; set; }
-        public virtual usertype usertype { get; set; }
     }
 }

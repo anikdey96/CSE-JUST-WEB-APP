@@ -369,30 +369,6 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Table_1_user">
-          <End Role="user" Type="Self.user" Multiplicity="1" />
-          <End Role="student" Type="Self.student" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="user">
-              <PropertyRef Name="user_id" />
-            </Principal>
-            <Dependent Role="student">
-              <PropertyRef Name="user_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Table_1_usertype">
-          <End Role="usertype" Type="Self.usertype" Multiplicity="1" />
-          <End Role="student" Type="Self.student" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usertype">
-              <PropertyRef Name="usertype_id" />
-            </Principal>
-            <Dependent Role="student">
-              <PropertyRef Name="usertype_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_teacher_user">
           <End Role="user" Type="Self.user" Multiplicity="1" />
           <End Role="teacher" Type="Self.teacher" Multiplicity="*" />
@@ -539,14 +515,6 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
             <End Role="teacher" EntitySet="teacher" />
             <End Role="routine" EntitySet="routine" />
           </AssociationSet>
-          <AssociationSet Name="FK_Table_1_user" Association="Self.FK_Table_1_user">
-            <End Role="user" EntitySet="user" />
-            <End Role="student" EntitySet="student" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Table_1_usertype" Association="Self.FK_Table_1_usertype">
-            <End Role="usertype" EntitySet="usertype" />
-            <End Role="student" EntitySet="student" />
-          </AssociationSet>
           <AssociationSet Name="FK_teacher_user" Association="Self.FK_teacher_user">
             <End Role="user" EntitySet="user" />
             <End Role="teacher" EntitySet="teacher" />
@@ -568,7 +536,7 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
           <Key>
             <PropertyRef Name="book_id" />
           </Key>
-          <Property Name="book_id" Type="Int32" Nullable="false" />
+          <Property Name="book_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="user_id" Type="Int32" Nullable="false" />
           <Property Name="book_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="book_author" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
@@ -580,7 +548,7 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
           <Key>
             <PropertyRef Name="materials_id" />
           </Key>
-          <Property Name="materials_id" Type="Int32" Nullable="false" />
+          <Property Name="materials_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="user_id" Type="Int32" Nullable="false" />
           <Property Name="materials_topic" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="arranged_by" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
@@ -593,7 +561,7 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
           <Key>
             <PropertyRef Name="notice_id" />
           </Key>
-          <Property Name="notice_id" Type="Int32" Nullable="false" />
+          <Property Name="notice_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="notice_topic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="published_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="publish_date" Type="DateTime" Nullable="false" Precision="0" />
@@ -609,7 +577,7 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
           <Key>
             <PropertyRef Name="result_id" />
           </Key>
-          <Property Name="result_id" Type="Int32" Nullable="false" />
+          <Property Name="result_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="student_id" Type="Int32" Nullable="false" />
           <Property Name="session" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="year_semester" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -620,7 +588,7 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
           <Key>
             <PropertyRef Name="routine_id" />
           </Key>
-          <Property Name="routine_id" Type="Int32" Nullable="false" />
+          <Property Name="routine_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="class_date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="day" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="teacher_id" Type="Int32" Nullable="false" />
@@ -637,7 +605,7 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
           <Key>
             <PropertyRef Name="student_id" />
           </Key>
-          <Property Name="student_id" Type="Int32" Nullable="false" />
+          <Property Name="student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="user_id" Type="Int32" Nullable="false" />
           <Property Name="usertype_id" Type="Int32" Nullable="false" />
           <Property Name="quota" Type="Boolean" Nullable="false" />
@@ -656,8 +624,6 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
           <NavigationProperty Name="activities" Relationship="Self.FK_activities_student" FromRole="student" ToRole="activities" />
           <NavigationProperty Name="current_academic" Relationship="Self.FK_current_academic_student" FromRole="student" ToRole="current_academic" />
           <NavigationProperty Name="previous_academic" Relationship="Self.FK_previous_academic_student1" FromRole="student" ToRole="previous_academic" />
-          <NavigationProperty Name="user" Relationship="Self.FK_Table_1_user" FromRole="student" ToRole="user" />
-          <NavigationProperty Name="usertype" Relationship="Self.FK_Table_1_usertype" FromRole="student" ToRole="usertype" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -673,7 +639,7 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
           <Key>
             <PropertyRef Name="teacher_id" />
           </Key>
-          <Property Name="teacher_id" Type="Int32" Nullable="false" />
+          <Property Name="teacher_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="user_id" Type="Int32" Nullable="false" />
           <Property Name="usertype_id" Type="Int32" Nullable="false" />
           <Property Name="designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -686,19 +652,20 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
           <NavigationProperty Name="routines" Relationship="Self.FK_routine_teacher" FromRole="teacher" ToRole="routine" />
           <NavigationProperty Name="carrier_t" Relationship="Self.FK_carrier_t_teacher" FromRole="teacher" ToRole="carrier_t" />
           <NavigationProperty Name="user" Relationship="Self.FK_teacher_user" FromRole="teacher" ToRole="user" />
-          <NavigationProperty Name="usertype" Relationship="Self.FK_teacher_usertype" FromRole="teacher" ToRole="usertype" />
+          <NavigationProperty Name="usertype" Relationship="csejustModel.FK_teacher_usertype" FromRole="teacher" ToRole="usertype" />
         </EntityType>
         <EntityType Name="user">
           <Key>
             <PropertyRef Name="user_id" />
           </Key>
-          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="usertype_id" Type="Int32" Nullable="false" />
           <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="birth_date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="contact_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="current_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="permanent_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -708,23 +675,11 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
           <Property Name="profile_pic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="books" Relationship="Self.FK_book_user" FromRole="user" ToRole="book" />
           <NavigationProperty Name="materials" Relationship="Self.FK_materials_user" FromRole="user" ToRole="materials" />
-          <NavigationProperty Name="students" Relationship="Self.FK_Table_1_user" FromRole="user" ToRole="student" />
           <NavigationProperty Name="teachers" Relationship="Self.FK_teacher_user" FromRole="user" ToRole="teacher" />
           <NavigationProperty Name="current_academic" Relationship="Self.FK_current_academic_user" FromRole="user" ToRole="current_academic" />
           <NavigationProperty Name="previous_academic" Relationship="Self.FK_previous_academic_user" FromRole="user" ToRole="previous_academic" />
-          <NavigationProperty Name="usertype" Relationship="Self.FK_user_usertype" FromRole="user" ToRole="usertype" />
-          <Property Name="password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="usertype">
-          <Key>
-            <PropertyRef Name="usertype_id" />
-          </Key>
-          <Property Name="usertype_id" Type="Int32" Nullable="false" />
-          <Property Name="usertype_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="students" Relationship="Self.FK_Table_1_usertype" FromRole="usertype" ToRole="student" />
-          <NavigationProperty Name="teachers" Relationship="Self.FK_teacher_usertype" FromRole="usertype" ToRole="teacher" />
-          <NavigationProperty Name="users" Relationship="Self.FK_user_usertype" FromRole="usertype" ToRole="user" />
-        </EntityType>
+          <NavigationProperty Name="usertype" Relationship="csejustModel.FK_user_usertype" FromRole="user" ToRole="usertype" />
+          </EntityType>
         <EntityType Name="activity">
           <Key>
             <PropertyRef Name="student_id" />
@@ -914,30 +869,6 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Table_1_user">
-          <End Role="user" Type="Self.user" Multiplicity="1" />
-          <End Role="student" Type="Self.student" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="user">
-              <PropertyRef Name="user_id" />
-            </Principal>
-            <Dependent Role="student">
-              <PropertyRef Name="user_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Table_1_usertype">
-          <End Role="usertype" Type="Self.usertype" Multiplicity="1" />
-          <End Role="student" Type="Self.student" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usertype">
-              <PropertyRef Name="usertype_id" />
-            </Principal>
-            <Dependent Role="student">
-              <PropertyRef Name="usertype_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_carrier_t_teacher">
           <End Role="teacher" Type="Self.teacher" Multiplicity="1" />
           <End Role="carrier_t" Type="Self.carrier_t" Multiplicity="*" />
@@ -959,18 +890,6 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
             </Principal>
             <Dependent Role="teacher">
               <PropertyRef Name="user_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_teacher_usertype">
-          <End Role="usertype" Type="Self.usertype" Multiplicity="1" />
-          <End Role="teacher" Type="Self.teacher" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usertype">
-              <PropertyRef Name="usertype_id" />
-            </Principal>
-            <Dependent Role="teacher">
-              <PropertyRef Name="usertype_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -998,18 +917,6 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_user_usertype">
-          <End Role="usertype" Type="Self.usertype" Multiplicity="1" />
-          <End Role="user" Type="Self.user" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="usertype">
-              <PropertyRef Name="usertype_id" />
-            </Principal>
-            <Dependent Role="user">
-              <PropertyRef Name="usertype_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="csejustEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="books" EntityType="Self.book" />
           <EntitySet Name="materials" EntityType="Self.material" />
@@ -1020,7 +927,6 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="teachers" EntityType="Self.teacher" />
           <EntitySet Name="users" EntityType="Self.user" />
-          <EntitySet Name="usertypes" EntityType="Self.usertype" />
           <EntitySet Name="activities" EntityType="Self.activity" />
           <EntitySet Name="carrier_t" EntityType="Self.carrier_t" />
           <EntitySet Name="current_academic" EntityType="Self.current_academic" />
@@ -1053,24 +959,12 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
             <End Role="student" EntitySet="students" />
             <End Role="previous_academic" EntitySet="previous_academic" />
           </AssociationSet>
-          <AssociationSet Name="FK_Table_1_user" Association="Self.FK_Table_1_user">
-            <End Role="user" EntitySet="users" />
-            <End Role="student" EntitySet="students" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Table_1_usertype" Association="Self.FK_Table_1_usertype">
-            <End Role="usertype" EntitySet="usertypes" />
-            <End Role="student" EntitySet="students" />
-          </AssociationSet>
           <AssociationSet Name="FK_carrier_t_teacher" Association="Self.FK_carrier_t_teacher">
             <End Role="teacher" EntitySet="teachers" />
             <End Role="carrier_t" EntitySet="carrier_t" />
           </AssociationSet>
           <AssociationSet Name="FK_teacher_user" Association="Self.FK_teacher_user">
             <End Role="user" EntitySet="users" />
-            <End Role="teacher" EntitySet="teachers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_teacher_usertype" Association="Self.FK_teacher_usertype">
-            <End Role="usertype" EntitySet="usertypes" />
             <End Role="teacher" EntitySet="teachers" />
           </AssociationSet>
           <AssociationSet Name="FK_current_academic_user" Association="Self.FK_current_academic_user">
@@ -1081,11 +975,49 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
             <End Role="user" EntitySet="users" />
             <End Role="previous_academic" EntitySet="previous_academic" />
           </AssociationSet>
-          <AssociationSet Name="FK_user_usertype" Association="Self.FK_user_usertype">
+          <EntitySet Name="usertypes" EntityType="csejustModel.usertype" />
+          <AssociationSet Name="FK_teacher_usertype" Association="csejustModel.FK_teacher_usertype">
+            <End Role="usertype" EntitySet="usertypes" />
+            <End Role="teacher" EntitySet="teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_usertype" Association="csejustModel.FK_user_usertype">
             <End Role="usertype" EntitySet="usertypes" />
             <End Role="user" EntitySet="users" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
+        <EntityType Name="usertype">
+          <Key>
+            <PropertyRef Name="usertype_id" />
+          </Key>
+          <Property Name="usertype_id" Type="Int32" Nullable="false" />
+          <Property Name="usertype_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="teachers" Relationship="csejustModel.FK_teacher_usertype" FromRole="usertype" ToRole="teacher" />
+          <NavigationProperty Name="users" Relationship="csejustModel.FK_user_usertype" FromRole="usertype" ToRole="user" />
+        </EntityType>
+        <Association Name="FK_teacher_usertype">
+          <End Type="csejustModel.usertype" Role="usertype" Multiplicity="1" />
+          <End Type="csejustModel.teacher" Role="teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertype">
+              <PropertyRef Name="usertype_id" />
+            </Principal>
+            <Dependent Role="teacher">
+              <PropertyRef Name="usertype_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_usertype">
+          <End Type="csejustModel.usertype" Role="usertype" Multiplicity="1" />
+          <End Type="csejustModel.user" Role="user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertype">
+              <PropertyRef Name="usertype_id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="usertype_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1213,7 +1145,6 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
           <EntitySetMapping Name="users">
             <EntityTypeMapping TypeName="csejustModel.user">
               <MappingFragment StoreEntitySet="user">
-                <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="usertype_id" ColumnName="usertype_id" />
                 <ScalarProperty Name="first_name" ColumnName="first_name" />
@@ -1221,6 +1152,7 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
                 <ScalarProperty Name="birth_date" ColumnName="birth_date" />
                 <ScalarProperty Name="contact_no" ColumnName="contact_no" />
                 <ScalarProperty Name="email_address" ColumnName="email_address" />
+                <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="current_address" ColumnName="current_address" />
                 <ScalarProperty Name="permanent_address" ColumnName="permanent_address" />
                 <ScalarProperty Name="gender" ColumnName="gender" />
@@ -1228,14 +1160,6 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
                 <ScalarProperty Name="religion" ColumnName="religion" />
                 <ScalarProperty Name="nationality" ColumnName="nationality" />
                 <ScalarProperty Name="profile_pic" ColumnName="profile_pic" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="usertypes">
-            <EntityTypeMapping TypeName="csejustModel.usertype">
-              <MappingFragment StoreEntitySet="usertype">
-                <ScalarProperty Name="usertype_id" ColumnName="usertype_id" />
-                <ScalarProperty Name="usertype_name" ColumnName="usertype_name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1303,6 +1227,14 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
                 <ScalarProperty Name="ssc_board" ColumnName="ssc_board" />
                 <ScalarProperty Name="ssc_school" ColumnName="ssc_school" />
                 <ScalarProperty Name="ssc_section" ColumnName="ssc_section" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usertypes">
+            <EntityTypeMapping TypeName="csejustModel.usertype">
+              <MappingFragment StoreEntitySet="usertype">
+                <ScalarProperty Name="usertype_name" ColumnName="usertype_name" />
+                <ScalarProperty Name="usertype_id" ColumnName="usertype_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

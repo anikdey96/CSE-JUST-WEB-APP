@@ -19,7 +19,6 @@ namespace DatabaseAccess
         {
             this.books = new HashSet<book>();
             this.materials = new HashSet<material>();
-            this.students = new HashSet<student>();
             this.teachers = new HashSet<teacher>();
             this.current_academic = new HashSet<current_academic>();
             this.previous_academic = new HashSet<previous_academic>();
@@ -32,6 +31,7 @@ namespace DatabaseAccess
         public System.DateTime birth_date { get; set; }
         public string contact_no { get; set; }
         public string email_address { get; set; }
+        public string password { get; set; }
         public string current_address { get; set; }
         public string permanent_address { get; set; }
         public string gender { get; set; }
@@ -39,14 +39,11 @@ namespace DatabaseAccess
         public string religion { get; set; }
         public string nationality { get; set; }
         public string profile_pic { get; set; }
-        public string password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<book> books { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<material> materials { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<student> students { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<teacher> teachers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

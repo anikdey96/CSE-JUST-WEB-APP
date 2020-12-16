@@ -34,10 +34,10 @@ namespace DatabaseAccess
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<teacher> teachers { get; set; }
         public virtual DbSet<user> users { get; set; }
-        public virtual DbSet<usertype> usertypes { get; set; }
         public virtual DbSet<activity> activities { get; set; }
         public virtual DbSet<carrier_t> carrier_t { get; set; }
         public virtual DbSet<current_academic> current_academic { get; set; }
         public virtual DbSet<previous_academic> previous_academic { get; set; }
+        public virtual DbSet<usertype> usertypes { get; set; }
     }
 }
