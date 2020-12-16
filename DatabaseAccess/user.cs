@@ -11,7 +11,8 @@ namespace DatabaseAccess
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class user
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,11 +24,13 @@ namespace DatabaseAccess
             this.current_academic = new HashSet<current_academic>();
             this.previous_academic = new HashSet<previous_academic>();
         }
-    
+
+       
         public int user_id { get; set; }
         public int usertype_id { get; set; }
         public string first_name { get; set; }
         public string last_name { get; set; }
+        [DataType(DataType.Date)]
         public System.DateTime birth_date { get; set; }
         public string contact_no { get; set; }
         public string email_address { get; set; }
@@ -39,7 +42,9 @@ namespace DatabaseAccess
         public string religion { get; set; }
         public string nationality { get; set; }
         public string profile_pic { get; set; }
-    
+
+       
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<book> books { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
