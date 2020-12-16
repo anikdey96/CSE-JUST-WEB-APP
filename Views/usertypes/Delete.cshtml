@@ -1,24 +1,26 @@
 ﻿@model DatabaseAccess.usertype
-
+<br />
+<br />
 @{
-    ViewBag.Title = "Delete UserType";
+    ViewBag.Title = "Delete UserType Information";
 }
 
 
 
-<h3>Are you sure you want to delete this usertype?</h3>
+<h4 class="m-0 font-weight-bold text-primary">Are You Sure You Want To Delete This Usertype?</h4>
+<br />
 <div class="card shadow mb-4">
-    
+
     <dl class="dl-horizontal">
         <br>
         <dt>
-            User Type ID
+            ID
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.usertype_id)
         </dd>
-        
+
         <dt>
             Name
         </dt>
@@ -35,7 +37,9 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-danger" />
-            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info" })
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
+
         </div>
     }
+    <br />
 </div>

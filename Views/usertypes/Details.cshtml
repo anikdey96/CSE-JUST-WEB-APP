@@ -1,14 +1,15 @@
 ﻿@model DatabaseAccess.usertype
-
+<br />
+<br />
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "UserType Details";
 }
 
-
-
+<h4 class="m-0 font-weight-bold text-primary">Usertype Details :</h4>
+<br />
 <div class="card shadow mb-4">
-    <h4>Usertype Details</h4>
 
+    <br />
     <dl class="table">
         <dt>
             ID
@@ -17,7 +18,7 @@
         <dd>
             @Html.DisplayFor(model => model.usertype_id)
         </dd>
-     
+
         <dt>
             Name
 
@@ -31,6 +32,6 @@
 
     <p>
         @Html.ActionLink("Edit", "Edit", new { id = Model.usertype_id }, new { @class = "btn btn-info" })
-        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info" })
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
     </p>
 </div>
