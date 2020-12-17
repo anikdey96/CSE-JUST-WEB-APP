@@ -1,9 +1,10 @@
 ﻿@model DatabaseAccess.user
 @using Cse_Just_Web_App.Models
+<br />
+<br />
 @{
     ViewBag.Title = "User Registration";
 }
-
 
 
 @using (Html.BeginForm("Create", "users", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -13,7 +14,9 @@
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="card mb-4 shadow">
-            <div class="card-header">User Information</div>
+            <div class="card-header">
+                <h4 class="m-0 font-weight-bold text-primary">New User Information :</h4>
+            </div>
 
             <div class="card-body">
 
@@ -114,7 +117,6 @@
 
                             @Html.DropDownListFor(m => m.gender,
                                       new SelectList(Enum.GetValues(typeof(Gender))), "Select Gender")
-
                             @*@Html.EditorFor(model => model.gender, new { htmlAttributes = new { @class = "form-control" } })*@
                             @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
                         </div>
@@ -140,7 +142,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.religion, "Religion", htmlAttributes: new { @class = "control-label" })
                             @Html.DropDownListFor(m => m.religion,
-                                     new SelectList(Enum.GetValues(typeof(Religion))), "Select Religion")
+                                new SelectList(Enum.GetValues(typeof(Religion))), "Select Religion")
 
                             @*@Html.EditorFor(model => model.religion, new { htmlAttributes = new { @class = "form-control" } })*@
                             @Html.ValidationMessageFor(model => model.religion, "", new { @class = "text-danger" })
@@ -163,13 +165,26 @@
 
                     <div class="col-md-6">
 
-                        <div class="form-group">
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.PhotoFile, "Choose Photo", htmlAttributes: new { @class = "control-label" })
+                                <span class="btn btn-default btn-file">
+
+                                    @Html.TextBoxFor(model => model.PhotoFile, new { type = "file" })
+                                    @Html.ValidationMessageFor(model => model.PhotoFile, "", new { @class = "text-danger" })
+                                </span>
+
+                            </div>
+                        </div>
+                        
+                         @*<div class="form-group">
                             @Html.LabelFor(model => model.profile_pic, "Profile Picture", htmlAttributes: new { @class = "control-label" })
 
                             @Html.EditorFor(model => model.profile_pic, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.profile_pic, "", new { @class = "text-danger" })
 
-                        </div>
+                        </div>*@
                     </div>
                 </div>
 
@@ -187,7 +202,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            @Html.LabelFor(model => model.usertype_id, "usertype", htmlAttributes: new { @class = "control-label" })
+                            @Html.LabelFor(model => model.usertype_id, "UserType", htmlAttributes: new { @class = "control-label" })
 
                             @Html.DropDownList("usertype_id", null, htmlAttributes: new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.usertype_id, "", new { @class = "text-danger" })
@@ -197,30 +212,20 @@
                 </div>
 
 
-                    <div class="row">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
 
-
-                        <div class="col-md-6">
-                            <div class="col-md-offset-2 col-md-10 text-right">
-                                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning" })
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-                                <div class="col-md-offset-2 col-md-10">
-                                    <input type="submit" value="Submit" class="btn btn-success" />
-                                </div>
-                            </div>
-                        </div>
-
+                        <input type="submit" value="Submit" class="btn btn-success" />
+                        @Html.ActionLink("Back To List", "Index", null, new { @class = "btn btn-warning" })
 
                     </div>
-
                 </div>
+
+
+
+
+
+            </div>
 
         </div>
 

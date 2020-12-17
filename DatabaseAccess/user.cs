@@ -12,6 +12,8 @@ namespace DatabaseAccess
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Web;
 
     public partial class user
     {
@@ -25,7 +27,6 @@ namespace DatabaseAccess
             this.previous_academic = new HashSet<previous_academic>();
         }
 
-       
         public int user_id { get; set; }
         public int usertype_id { get; set; }
         public string first_name { get; set; }
@@ -43,7 +44,8 @@ namespace DatabaseAccess
         public string nationality { get; set; }
         public string profile_pic { get; set; }
 
-       
+        [NotMapped]
+        public HttpPostedFileBase PhotoFile { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<book> books { get; set; }

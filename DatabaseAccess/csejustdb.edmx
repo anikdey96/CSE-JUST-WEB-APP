@@ -240,7 +240,7 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
           <Property Name="blood_group" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="religion" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="nationality" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="profile_pic" Type="varchar(max)" Nullable="false" />
+          <Property Name="profile_pic" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="usertype">
           <Key>
@@ -672,7 +672,7 @@ warning 6002: The table/view 'csejust.dbo.previous_academic' does not have a pri
           <Property Name="blood_group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="religion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="profile_pic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="profile_pic" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="books" Relationship="Self.FK_book_user" FromRole="user" ToRole="book" />
           <NavigationProperty Name="materials" Relationship="Self.FK_materials_user" FromRole="user" ToRole="materials" />
           <NavigationProperty Name="teachers" Relationship="Self.FK_teacher_user" FromRole="user" ToRole="teacher" />

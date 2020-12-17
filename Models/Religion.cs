@@ -10,7 +10,7 @@ namespace Cse_Just_Web_App.Models
         Islam,
         Hindu,
         Christian,
-        Budhha,
+        Budhhism,
         Others
     }
 }

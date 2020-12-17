@@ -66,10 +66,26 @@ namespace Cse_Just_Web_App.Controllers
             {
                 return RedirectToAction("Login", "Home");
             }
+            int userid = Convert.ToInt32(Convert.ToString(Session["user_id"]));
+            user.user_id = userid;
+            user.profile_pic = "/Content/UserPhoto";
             if (ModelState.IsValid)
             {
                 db.users.Add(user);
                 db.SaveChanges();
+                if (user.PhotoFile != null)
+                {
+                    var folder = "/Content/UserPhoto";
+                    var file = string.Format("{0}.png", user.user_id);
+                    var response = FileHelper.UploadFile.UploadPhoto(user.PhotoFile, folder, file);
+                    if (response)
+                    {
+                        var pic = string.Format("{0}/{1}", folder, file);
+                        user.profile_pic = pic;
+                        db.Entry(user).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
                 return RedirectToAction("Index");
             }
 
@@ -108,8 +124,26 @@ namespace Cse_Just_Web_App.Controllers
             {
                 return RedirectToAction("Login", "Home");
             }
+            int userid = Convert.ToInt32(Convert.ToString(Session["user_id"]));
+            user.user_id = userid;
+            user.profile_pic = "/Content/UserPhoto";
             if (ModelState.IsValid)
             {
+               
+                if (user.PhotoFile != null)
+                {
+                    var folder = "/Content/UserPhoto";
+                    var file = string.Format("{0}.png", user.user_id);
+                    var response = FileHelper.UploadFile.UploadPhoto(user.PhotoFile, folder, file);
+                    if (response)
+                    {
+                        var pic = string.Format("{0}/{1}", folder, file);
+                        user.profile_pic = pic;
+
+                    }
+                }
+
+
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
